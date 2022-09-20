@@ -17,6 +17,10 @@ public class MovingPlatform : MonoBehaviour
     public Vector3 finish;
     [Header("speed")]
     public float speed;
+
+    [Header("timer")]
+    public float saveTimer;
+    private float timer;
     #endregion
 
     private Vector3 start;
@@ -29,29 +33,39 @@ public class MovingPlatform : MonoBehaviour
     {
         start = (begin - finish).normalized;
         end = (finish - begin).normalized;
+        timer = saveTimer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(starting)
+        if (timer <= 0)
         {
-            transform.Translate(start * Time.deltaTime *speed);
-            if(transform.position.x<= xStart && transform.position.y <= yStart && transform.position.z <= zStart)
+            if (starting)
             {
-                starting = false;
-                ending = true;
+                transform.Translate(start * Time.deltaTime * speed);
+                if (transform.position.x <= xStart && transform.position.y <= yStart && transform.position.z <= zStart)
+                {
+                    starting = false;
+                    ending = true;
+                    timer = saveTimer;
+                }
+            }
+            if (ending)
+            {
+                transform.Translate(end * Time.deltaTime * speed);
+                if (transform.position.x >= xEnd && transform.position.y >= yEnd && transform.position.z >= zEnd)
+                {
+                    ending = false;
+                    starting = true;
+                    timer = saveTimer;
+
+                }
             }
         }
-        if(ending)
+        else
         {
-            transform.Translate(end * Time.deltaTime *speed);
-            if (transform.position.x >= xEnd && transform.position.y >= yEnd && transform.position.z >= zEnd)
-            {   
-                ending = false;
-                starting = true;
-                
-            }
+            timer -= Time.deltaTime;
         }
     }
 }
