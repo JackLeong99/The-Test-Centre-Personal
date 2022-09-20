@@ -120,6 +120,7 @@ MonoBehaviour:
   zEnd: 0
   finish: {x: 0, y: 5, z: 0}
   speed: 30
+  saveTimer: 0
 --- !u!54 &9219348324559986075
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
