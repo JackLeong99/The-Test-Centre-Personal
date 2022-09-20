@@ -388,5 +388,24 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        void OnTriggerEnter(Collider collider)
+        {
+            Debug.Log("here");
+            GameObject other = collider.gameObject;
+            if(other.tag=="platform")
+            {
+                this.transform.parent = other.transform;
+            }
+        }
+
+        void OnCollisionEnter(Collision collider)
+        {
+            GameObject other = collider.gameObject;
+            if (other.tag == "platform")
+            {
+                this.transform.parent = other.transform;
+            }
+        }
     }
 }
