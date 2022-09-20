@@ -1021,6 +1021,10 @@ PrefabInstance:
       value: -195
       objectReference: {fileID: 0}
     - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
       propertyPath: xStart
       value: 100
       objectReference: {fileID: 0}
@@ -1561,6 +1565,10 @@ PrefabInstance:
       propertyPath: finish.z
       value: -64
       objectReference: {fileID: 0}
+    - target: {fileID: 9219348324559986052, guid: c8b4d4c60a0049549baa8fc9148edf38, type: 3}
+      propertyPath: saveTimer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9219348324559986074, guid: c8b4d4c60a0049549baa8fc9148edf38, type: 3}
       propertyPath: m_Name
       value: MovingGround (2)
@@ -1589,6 +1597,10 @@ PrefabInstance:
     - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
       propertyPath: zEnd
       value: -195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
+      propertyPath: speed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
       propertyPath: xStart
@@ -1698,6 +1710,10 @@ PrefabInstance:
     - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
       propertyPath: zEnd
       value: -149
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
+      propertyPath: speed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
       propertyPath: xStart
@@ -1900,6 +1916,10 @@ PrefabInstance:
       propertyPath: finish.z
       value: -51
       objectReference: {fileID: 0}
+    - target: {fileID: 9219348324559986052, guid: c8b4d4c60a0049549baa8fc9148edf38, type: 3}
+      propertyPath: saveTimer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9219348324559986074, guid: c8b4d4c60a0049549baa8fc9148edf38, type: 3}
       propertyPath: m_Name
       value: MovingGround (1)
@@ -2018,6 +2038,10 @@ PrefabInstance:
     - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
       propertyPath: zEnd
       value: -104
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
+      propertyPath: speed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1654288785097804619, guid: bf0b1f937143b1e4c80ab266637a05ec, type: 3}
       propertyPath: xStart
