@@ -25,6 +25,7 @@ public class GameOver : MonoBehaviour
     {
         deathMenu.SetActive(true);
         //will need to disable player
+        //or since we are going with buggy, it is not disabled
     }
 
     public void Death()

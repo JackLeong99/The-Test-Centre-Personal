@@ -98,6 +98,9 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
+        //stuff
+        
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
 #endif
@@ -159,6 +162,12 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            if(transform.position.y<=-50)
+            {
+                {
+                    transform.position = new Vector3(0, 1, 0);
+                } }
         }
 
         private void LateUpdate()
@@ -389,22 +398,39 @@ namespace StarterAssets
             }
         }
 
-        void OnTriggerEnter(Collider collider)
+        public void MovePlayer()
         {
-            Debug.Log("here");
-            GameObject other = collider.gameObject;
-            if(other.tag=="platform")
-            {
-                this.transform.parent = other.transform;
-            }
+            transform.position = new Vector3(0, 1, 0);
         }
 
-        void OnCollisionEnter(Collision collider)
+        /* void OnTriggerEnter(Collider collider)
+         {
+             Debug.Log("here");
+             GameObject other = collider.gameObject;
+             if(other.tag=="platform")
+             {
+                 this.transform.parent = other.transform;
+             }
+         }
+
+         void OnCollisionEnter(Collision collider)
+         {
+             GameObject other = collider.gameObject;
+             if (other.tag == "platform")
+             {
+                 this.transform.parent = other.transform;
+             }
+         }*/
+        void OnTriggerEnter(Collider collider)
         {
+            Debug.Log("hi");
             GameObject other = collider.gameObject;
-            if (other.tag == "platform")
+            if(other.tag=="lava")
             {
-                this.transform.parent = other.transform;
+
+                Debug.Log("hi again");
+                this.transform.position = new Vector3(0, 1, 0);
+                //MovePlayer();
             }
         }
     }

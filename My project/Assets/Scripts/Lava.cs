@@ -18,7 +18,7 @@ public class Lava : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="player")
+        if(other.tag=="Player")
         {
             GameOver.instance.DisplayMenu();
         }
