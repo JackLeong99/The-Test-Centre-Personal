@@ -4,11 +4,35 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    static private Player instance;
+    static public Player Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                Debug.LogError("There is no Player instance in the scene");
+            }
+            return instance;
+        }
+    }
+
+    private int playerDeathCounter = 1;
+    public int PlayerDeathCounter
+    {
+        get
+        {
+            return playerDeathCounter;
+        }
+    }
+
     public float moveSpeed = 10f;
     private float space=0;
     private float timer = 0;
     private float jump = 0;
     private float jumpHeight = 100;
+
+
     // Start is called before the first frame update
     void Start()
     {

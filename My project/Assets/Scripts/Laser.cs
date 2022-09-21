@@ -10,41 +10,59 @@ public class Laser : MonoBehaviour
     }
 
     private LaserState laserState;
+    private float laserTimer;
+    public float laserOffTimer = 3;
+    public float laserResetTimer = 3;
     public float laserFireTimer = 5;
 
-    public Material Yellow;
-    public Material Red;
+    public Material green;
+    public Material yellow;
+    public Material red;
 
-    private GameObject myLaser;
+    private MeshRenderer myLaser;
 
     // Start is called before the first frame update
     void Start()
     {
         laserState = LaserState.Off;
-        myLaser = GetComponent<GameObject>();
-        Debug.Log(myLaser);
+        myLaser = GetComponent<MeshRenderer>();
+        laserTimer = laserOffTimer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        laserFireTimer -= Time.deltaTime;
+        laserTimer -= Time.deltaTime;
 
         switch (laserState)
         {
             case LaserState.Off:
-                if (laserFireTimer <= 0)
+                if (laserTimer <= 0)
                 {
+                    myLaser.material = green;
+                    laserTimer = laserResetTimer;
                     laserState = LaserState.Reset;
                 }
-
-            break;
+                break;
 
             case LaserState.Reset:
+                if(laserTimer <= 0)
+                {
+                    myLaser.material = yellow;
+                    laserTimer = laserFireTimer;
+                    laserState = LaserState.Firing;
+                }
+                break;
 
-            break;
 
-
+            case LaserState.Firing:
+                if (laserTimer <= 0)
+                {
+                    myLaser.material = red;
+                    laserTimer = laserOffTimer;
+                    laserState = LaserState.Off;
+                }
+                break;
         }
     }
 }
