@@ -163,11 +163,16 @@ namespace StarterAssets
             GroundedCheck();
             Move();
 
-            if(transform.position.y<=-50)
+            if(transform.position.y<=-70)
             {
                 {
                     transform.position = new Vector3(0, 1, 0);
-                } }
+                } 
+            }
+            if(Input.GetKeyDown("escape"))
+            {
+                Application.Quit();
+            }
         }
 
         private void LateUpdate()
