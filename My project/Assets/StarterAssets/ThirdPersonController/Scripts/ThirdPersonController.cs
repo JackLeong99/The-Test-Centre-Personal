@@ -434,7 +434,7 @@ namespace StarterAssets
             {
 
                 Debug.Log("hi again");
-                this.transform.position = new Vector3(0, 1, 0);
+                transform.position = new Vector3(0, 1, 0);
                 //MovePlayer();
             }
         }

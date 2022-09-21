@@ -52,8 +52,11 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("platform") == false)
-            other.transform.SetParent(transform);
+        if (other.CompareTag("lava") == false)
+        {
+            if (other.CompareTag("platform") == false)
+                other.transform.SetParent(transform);
+        }
     }
 
     private void OnTriggerExit(Collider other)

@@ -11,9 +11,9 @@ public class Laser : MonoBehaviour
 
     private LaserState laserState;
     private float laserTimer;
-    public float laserOffTimer = 3;
-    public float laserResetTimer = 3;
-    public float laserFireTimer = 5;
+    public float laserOffTimer = 2;
+    public float laserResetTimer = 2;
+    public float laserFireTimer = 2;
 
     public Material green;
     public Material yellow;
@@ -39,6 +39,7 @@ public class Laser : MonoBehaviour
             case LaserState.Off:
                 if (laserTimer <= 0)
                 {
+                    this.tag = "Untagged";
                     myLaser.material = green;
                     laserTimer = laserResetTimer;
                     laserState = LaserState.Reset;
@@ -58,6 +59,7 @@ public class Laser : MonoBehaviour
             case LaserState.Firing:
                 if (laserTimer <= 0)
                 {
+                    this.tag = "lava";
                     myLaser.material = red;
                     laserTimer = laserOffTimer;
                     laserState = LaserState.Off;
@@ -65,4 +67,5 @@ public class Laser : MonoBehaviour
                 break;
         }
     }
+
 }
