@@ -163,12 +163,6 @@ namespace StarterAssets
             GroundedCheck();
             Move();
 
-            if(transform.position.y<=-70)
-            {
-                {
-                    transform.position = new Vector3(0, 1, 0);
-                } 
-            }
             if(Input.GetKeyDown("escape"))
             {
                 Application.Quit();
@@ -400,42 +394,6 @@ namespace StarterAssets
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
-            }
-        }
-
-        public void MovePlayer()
-        {
-            transform.position = new Vector3(0, 1, 0);
-        }
-
-        /* void OnTriggerEnter(Collider collider)
-         {
-             Debug.Log("here");
-             GameObject other = collider.gameObject;
-             if(other.tag=="platform")
-             {
-                 this.transform.parent = other.transform;
-             }
-         }
-
-         void OnCollisionEnter(Collision collider)
-         {
-             GameObject other = collider.gameObject;
-             if (other.tag == "platform")
-             {
-                 this.transform.parent = other.transform;
-             }
-         }*/
-        void OnTriggerEnter(Collider collider)
-        {
-            Debug.Log("hi");
-            GameObject other = collider.gameObject;
-            if(other.tag=="lava")
-            {
-
-                Debug.Log("hi again");
-                transform.position = new Vector3(0, 1, 0);
-                //MovePlayer();
             }
         }
     }

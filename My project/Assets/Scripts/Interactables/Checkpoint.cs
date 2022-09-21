@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lava : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player")) 
         {
-            GameManager.instance.ReturnToCheckpoint();
+            GameManager.instance.SetCheckpoint(this.gameObject);
         }
     }
 }
