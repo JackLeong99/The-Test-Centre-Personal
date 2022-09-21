@@ -10,6 +10,9 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     private float _speed;
 
+    [SerializeField]
+    private bool smoothing = true;
+
     private int _targetWaypointIndex;
 
     private Transform _previousWaypoint;
@@ -28,7 +31,12 @@ public class MovingPlatform : MonoBehaviour
         _elapsedTime += Time.deltaTime;
 
         float elapsedPercentage = _elapsedTime / _timeToWaypoint;
-        elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
+        switch (smoothing) 
+        {
+            case true:
+                elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
+                break;
+        }
         transform.position = Vector3.Lerp(_previousWaypoint.position, _targetWaypoint.position, elapsedPercentage);
         transform.rotation = Quaternion.Lerp(_previousWaypoint.rotation, _targetWaypoint.rotation, elapsedPercentage);
 
@@ -52,16 +60,13 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("lava") == false)
-        {
-            if (other.CompareTag("platform") == false)
-                other.transform.SetParent(transform);
-        }
+        if (other.CompareTag("Player") == true || other.CompareTag("movable") == true)
+            other.transform.SetParent(this.gameObject.transform);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("platform") == false)
+        if (other.CompareTag("Player") == true || other.CompareTag("movable") == true)
             other.transform.SetParent(null);
     }
 }

@@ -214,4 +214,4 @@ MonoBehaviour:
   laserFireTimer: 1
   green: {fileID: 2100000, guid: 525e1e10b5f7d5f48b4db020bfd07217, type: 2}
   yellow: {fileID: 2100000, guid: 28f1bff3b2b76f443941a0457764539d, type: 2}
-  red: {fileID: 2100000, guid: dcfa881658305594899a603a24a5625e, type: 2}
+  red: {fileID: 2100000, guid: c2203fe5d674ed7459580afe423a45ca, type: 2}
