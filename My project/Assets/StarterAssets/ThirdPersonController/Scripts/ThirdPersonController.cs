@@ -167,7 +167,12 @@ namespace StarterAssets
             {
                 {
                     transform.position = new Vector3(0, 1, 0);
-                } }
+                } 
+            }
+            if(Input.GetKeyDown("escape"))
+            {
+                Application.Quit();
+            }
         }
 
         private void LateUpdate()
