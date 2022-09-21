@@ -13,7 +13,6 @@ public class SaveWall : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data) 
     {
         data.gatesReached.TryGetValue(id, out met);
-        Debug.Log("met: " + met);
         if (met) 
         {
             this.gameObject.SetActive(false);

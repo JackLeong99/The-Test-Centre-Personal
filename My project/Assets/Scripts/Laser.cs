@@ -39,7 +39,6 @@ public class Laser : MonoBehaviour
             case LaserState.Off:
                 if (laserTimer <= 0)
                 {
-                    this.tag = "Untagged";
                     myLaser.material = green;
                     laserTimer = laserResetTimer;
                     laserState = LaserState.Reset;
@@ -55,16 +54,22 @@ public class Laser : MonoBehaviour
                 }
                 break;
 
-
             case LaserState.Firing:
                 if (laserTimer <= 0)
                 {
-                    this.tag = "lava";
                     myLaser.material = red;
                     laserTimer = laserOffTimer;
                     laserState = LaserState.Off;
                 }
                 break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && laserState == LaserState.Firing) 
+        {
+            GameManager.instance.ReturnToCheckpoint();
         }
     }
 
