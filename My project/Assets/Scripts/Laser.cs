@@ -67,7 +67,7 @@ public class Laser : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && laserState == LaserState.Firing) 
+        if (other.CompareTag("Player") && laserState == LaserState.Off) 
         {
             GameManager.instance.ReturnToCheckpoint();
         }
