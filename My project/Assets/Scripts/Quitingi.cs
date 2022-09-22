@@ -21,9 +21,10 @@ public class Quitingi : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("platform") == false)
+        if (other.CompareTag("Player") == true)
         {
             menu.SetActive(true);
+            GameManager.instance.toggleGlitchOn();
         }
     }
 }

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public GameObject player;
 
+    public GameObject mainCamera;
+
     private void Awake()
     {
         if (instance != null) 
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         instance = this;
         currentCheckpoint = GameObject.FindGameObjectsWithTag("checkpoint").ToList();
         this.player = GameObject.FindWithTag("Player");
+        this.mainCamera = GameObject.FindWithTag("MainCamera");
+        this.mainCamera.GetComponent<GlitchEffect>().enabled = false;
     }
 
     public void SetCheckpoint(GameObject checkpoint) 
@@ -56,5 +60,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public void SaveData(ref GameData data) 
     {
         data.checkpointIndex = this.currentIndex;
+    }
+
+    public void toggleGlitchOn() 
+    {
+        this.mainCamera.GetComponent<GlitchEffect>().enabled = true;
     }
 }
